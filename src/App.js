@@ -1,5 +1,6 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
+import "./App.css";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         >
           Learn React
         </a>
+        <AccessAlarmIcon />
       </header>
     </div>
   );
