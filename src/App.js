@@ -2,7 +2,6 @@ import axios from "axios";
 import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
-import "./App.css";
 import { useEffect, useState } from "react";
 import Users from "./models/Users";
 import Products from "./models/Products";
@@ -37,13 +36,13 @@ function App() {
   }, []);
 
   return (
-    <Box>
+    <Box bgcolor={"#e6f0ff"}>
       <CssBaseline />
       <Container>
         <Stack
           divider={<Divider />}
           spacing={2}
-          sx={{ marginTop: 4, paddingBottom: 4 }}
+          sx={{ paddingBottom: 2, paddingTop: 2 }}
         >
           <Task1 users={users} products={products} carts={carts} />
 
