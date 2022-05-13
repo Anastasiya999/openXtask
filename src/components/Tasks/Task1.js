@@ -1,6 +1,6 @@
 import React from "react";
-import Box from "@mui/material/Box";
 import AccordionTable from "../AccordionTable/AccordionTable";
+import TaskWrapper from "./TaskWrapper";
 import {
   users_columns,
   users_fields,
@@ -24,9 +24,8 @@ const Task1 = ({ users, products, carts }) => {
   };
 
   return (
-    <Box px={2} pb={2}>
-      <h3>Task 1</h3>
-
+    <TaskWrapper id="1">
+      {" "}
       <AccordionTable
         id={1}
         data={users}
@@ -39,7 +38,6 @@ const Task1 = ({ users, products, carts }) => {
         handleChange={handleChange}
         getRows={getRows}
       />
-
       <AccordionTable
         id={2}
         data={products}
@@ -64,7 +62,7 @@ const Task1 = ({ users, products, carts }) => {
         handleChange={handleChange}
         getRows={getRows}
       />
-    </Box>
+    </TaskWrapper>
   );
 };
 

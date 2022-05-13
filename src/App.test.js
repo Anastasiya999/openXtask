@@ -1,10 +1,4 @@
-import {
-  fireEvent,
-  getByLabelText,
-  render,
-  screen,
-  waitFor,
-} from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import App from "./App";
 
 test("renders task1", async () => {
@@ -13,9 +7,18 @@ test("renders task1", async () => {
   expect(header).toBeInTheDocument();
   await screen.getAllByRole("progressbar");
 
-  await screen.findByText(/Users/i);
-  await screen.findByText(/Products/i);
-  await screen.findByText(/Carts/i);
+  //await screen.findByText(/Users/i);
+  await waitFor(() => {
+    expect(screen.getByText("Users")).toBeInTheDocument();
+  });
+  await waitFor(() => {
+    expect(screen.getByText("Products")).toBeInTheDocument();
+  });
+  await waitFor(() => {
+    expect(screen.getByText("Carts")).toBeInTheDocument();
+  });
+  //await screen.findByText(/Products/i);
+  //await screen.findByText(/Carts/i);
 
   const button = await screen.findAllByRole("button");
   fireEvent.click(button[0]);

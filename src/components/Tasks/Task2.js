@@ -1,5 +1,5 @@
 import React from "react";
-import Box from "@mui/material/Box";
+import TaskWrapper from "./TaskWrapper";
 
 import { category_columns } from "../../data/metadata";
 import AccordionTable from "../AccordionTable/AccordionTable";
@@ -15,8 +15,7 @@ const Task2 = ({ products }) => {
     return data.getCategories();
   };
   return (
-    <Box px={2} pb={2}>
-      <h3>Task 2</h3>
+    <TaskWrapper id="2">
       <AccordionTable
         data={products}
         expanded={expanded}
@@ -28,7 +27,7 @@ const Task2 = ({ products }) => {
         columns={category_columns}
         fields={null}
       />
-    </Box>
+    </TaskWrapper>
   );
 };
 

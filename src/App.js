@@ -13,6 +13,7 @@ import Divider from "@mui/material/Divider";
 import Task1 from "./components/Tasks/Task1";
 import Task2 from "./components/Tasks/Task2";
 import Task3 from "./components/Tasks/Task3";
+import Task4 from "./components/Tasks/Task4";
 
 import endpoints from "./data/api";
 
@@ -39,14 +40,18 @@ function App() {
     <Box>
       <CssBaseline />
       <Container>
-        <Stack divider={<Divider />} spacing={2} sx={{ marginTop: 4 }}>
+        <Stack
+          divider={<Divider />}
+          spacing={2}
+          sx={{ marginTop: 4, paddingBottom: 4 }}
+        >
           <Task1 users={users} products={products} carts={carts} />
 
           <Task2 products={products} />
 
           <Task3 users={users} products={products} carts={carts} />
 
-          <div>task 4</div>
+          <Task4 users={users} />
         </Stack>
       </Container>
     </Box>

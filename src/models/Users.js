@@ -29,7 +29,11 @@ export default class Users {
       }
     }
 
-    return maxDist;
+    return {
+      dist: maxDist,
+      user1: this.users[maxInd1],
+      user2: this.users[maxInd2],
+    };
   }
 
   getFullNameById(id) {
