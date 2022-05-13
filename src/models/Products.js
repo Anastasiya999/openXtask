@@ -19,6 +19,12 @@ export default class Products {
       }
     }
 
+    this.productsByCategories = Object.entries(this.productsByCategories).map(
+      ([key, value], index) => {
+        return { id: index, category: key, quantity: value };
+      }
+    );
+
     return this.productsByCategories;
   }
 

@@ -3,9 +3,6 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import "./App.css";
-import { fetchUsers } from "./api/users";
-import { fetchProducts } from "./api/products";
-import { fetchCarts } from "./api/carts";
 import { useEffect, useState } from "react";
 import Users from "./models/Users";
 import Products from "./models/Products";
@@ -14,9 +11,10 @@ import Stack from "@mui/material/Stack";
 import Divider from "@mui/material/Divider";
 import Paper from "@mui/material/Paper";
 
-import Task1 from "./components/Task/Task1";
+import Task1 from "./components/Tasks/Task1";
+import Task2 from "./components/Tasks/Task2";
 
-import endpoints from "./api/api";
+import endpoints from "./data/api";
 
 function App() {
   const [products, setProducts] = useState(null);
@@ -45,7 +43,9 @@ function App() {
           <Paper elevation={0}>
             <Task1 users={users} products={products} carts={carts} />
           </Paper>
-          <div>task 2</div>
+          <Paper elevation={0}>
+            <Task2 products={products} />
+          </Paper>
           <div>task 3</div>
           <div>task 4</div>
         </Stack>

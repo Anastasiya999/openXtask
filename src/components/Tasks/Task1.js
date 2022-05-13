@@ -1,11 +1,6 @@
 import React from "react";
 import Box from "@mui/material/Box";
-import Accordion from "@mui/material/Accordion";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import Typography from "@mui/material/Typography";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import DataTable from "../DataTable/DataTable";
+import AccordionTable from "../AccordionTable/AccordionTable";
 import {
   users_columns,
   users_fields,
@@ -13,7 +8,7 @@ import {
   products_fields,
   carts_columns,
   carts_fields,
-} from "../../metadata";
+} from "../../data/metadata";
 import pickByFields from "../../helpers";
 
 const Task1 = ({ users, products, carts }) => {
@@ -21,6 +16,10 @@ const Task1 = ({ users, products, carts }) => {
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
+  };
+
+  const getRows = (data, fields) => {
+    return pickByFields(data.getItems(), fields);
   };
 
   return (
@@ -37,6 +36,7 @@ const Task1 = ({ users, products, carts }) => {
         fields={users_fields}
         columns={users_columns}
         handleChange={handleChange}
+        getRows={getRows}
       />
 
       <AccordionTable
@@ -49,6 +49,7 @@ const Task1 = ({ users, products, carts }) => {
         fields={products_fields}
         columns={products_columns}
         handleChange={handleChange}
+        getRows={getRows}
       />
       <AccordionTable
         id={3}
@@ -60,53 +61,10 @@ const Task1 = ({ users, products, carts }) => {
         fields={carts_fields}
         columns={carts_columns}
         handleChange={handleChange}
+        getRows={getRows}
       />
     </Box>
   );
 };
-
-function AccordionTable({
-  id,
-  data,
-  header,
-  title,
-  msg,
-  expanded,
-  fields,
-  columns,
-  handleChange,
-}) {
-  return (
-    <>
-      {data ? (
-        <Accordion
-          expanded={expanded === `panel${id}`}
-          onChange={handleChange(`panel${id}`)}
-        >
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls={`panel${id}bh-content`}
-            id={`panel${id}bh-header`}
-          >
-            <Typography sx={{ width: "33%", flexShrink: 0 }}>
-              {header}
-            </Typography>
-            <Typography sx={{ color: "text.secondary" }}>{title}</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <DataTable
-              rows={pickByFields(data.getItems(), fields)}
-              columns={columns}
-            />
-          </AccordionDetails>
-        </Accordion>
-      ) : (
-        <div>
-          {msg} <i class="bx bx-loader-alt bx-spin"></i>
-        </div>
-      )}
-    </>
-  );
-}
 
 export default Task1;

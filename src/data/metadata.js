@@ -45,6 +45,14 @@ const carts_columns = [
 
 const carts_fields = ["id", "userId", "date"];
 
+//for categories grid
+
+const category_columns = [
+  { field: "id", headerName: "#", width: 70 },
+  { field: "category", headerName: "Category", width: 200 },
+  { field: "quantity", headerName: "Quantity", width: 100 },
+];
+
 export {
   users_columns,
   users_fields,
@@ -52,4 +60,5 @@ export {
   products_fields,
   carts_columns,
   carts_fields,
+  category_columns,
 };
