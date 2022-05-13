@@ -43,9 +43,7 @@ function App() {
       <Container>
         <Stack divider={<Divider />} spacing={2} sx={{ marginTop: 4 }}>
           <Paper elevation={0}>
-            {users && products && carts ? (
-              <Task1 users={users} products={products} carts={carts} />
-            ) : null}
+            <Task1 users={users} products={products} carts={carts} />
           </Paper>
           <div>task 2</div>
           <div>task 3</div>

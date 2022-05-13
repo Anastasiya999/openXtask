@@ -3,7 +3,7 @@ export default class Products {
     this.items = items;
   }
 
-  getProducts() {
+  getItems() {
     return this.items;
   }
 
