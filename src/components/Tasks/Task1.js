@@ -13,7 +13,6 @@ import pickByFields from "../../helpers";
 
 const Task1 = ({ users, products, carts }) => {
   const [expanded, setExpanded] = React.useState(false);
-  console.log(users ? users.findFurthersUsers() : "furthest");
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);

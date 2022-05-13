@@ -1,5 +1,7 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import mockusers from "./data/mockusers";
 import App from "./App";
+import Users from "./models/Users";
 
 test("renders task1", async () => {
   await render(<App />);
@@ -17,8 +19,6 @@ test("renders task1", async () => {
   await waitFor(() => {
     expect(screen.getByText("Carts")).toBeInTheDocument();
   });
-  //await screen.findByText(/Products/i);
-  //await screen.findByText(/Carts/i);
 
   const button = await screen.findAllByRole("button");
   fireEvent.click(button[0]);
@@ -63,10 +63,28 @@ test("renders task2", async () => {
   });
 });
 
-test("renders task3", async () => {
-  await render(<App />);
+test("renders task3", () => {
+  render(<App />);
   const header = screen.getByText(/Task 3/i);
   expect(header).toBeInTheDocument();
   expect(screen.getByText("Full name:")).toBeInTheDocument();
   expect(screen.getByText("Value:")).toBeInTheDocument();
+});
+
+test("renders task4", () => {
+  render(<App />);
+  const header = screen.getByText(/Task 4/i);
+  expect(header).toBeInTheDocument();
+  expect(screen.getByText("First user:")).toBeInTheDocument();
+  expect(screen.getByText("Second user:")).toBeInTheDocument();
+  expect(screen.getByText("Distance:")).toBeInTheDocument();
+});
+
+test("tests max distance calculation", () => {
+  render(<App />);
+  const users = new Users(mockusers);
+  const furthest = users.findFurthersUsers();
+
+  expect(furthest.user1.name.firstname).toBe("simon");
+  expect(furthest.user2.name.firstname).toBe("kate");
 });

@@ -42,7 +42,7 @@ export default function AccordionTable({
       ) : (
         <div>
           {msg}
-          <LinearProgress color="secondary" />
+          <LinearProgress color="primary" />
         </div>
       )}
     </>
