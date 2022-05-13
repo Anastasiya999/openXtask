@@ -1,4 +1,4 @@
-import { styled, useTheme } from "@mui/material/styles";
+import axios from "axios";
 import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
@@ -16,27 +16,27 @@ import Paper from "@mui/material/Paper";
 
 import Task1 from "./components/Task/Task1";
 
+import endpoints from "./api/api";
+
 function App() {
   const [products, setProducts] = useState(null);
   const [users, setUsers] = useState(null);
   const [carts, setCarts] = useState(null);
+
+  const getData = () => {
+    Promise.all(endpoints.map((endpoint) => axios.get(endpoint))).then(
+      ([{ data: users }, { data: products }, { data: carts }]) => {
+        setUsers(new Users(users));
+        setProducts(new Products(products));
+        setCarts(new Carts(carts));
+      }
+    );
+  };
+
   useEffect(() => {
-    getProducts();
-    getUsers();
-    getCarts();
+    getData();
   }, []);
-  async function getProducts() {
-    const items = await fetchProducts();
-    setProducts(new Products(items));
-  }
-  async function getUsers() {
-    const items = await fetchUsers();
-    setUsers(new Users(items));
-  }
-  async function getCarts() {
-    const items = await fetchCarts();
-    setCarts(new Carts(items));
-  }
+
   return (
     <Box>
       <CssBaseline />
