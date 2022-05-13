@@ -4,6 +4,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import DataTable from "../DataTable/DataTable";
+import LinearProgress from "@mui/material/LinearProgress";
 
 export default function AccordionTable({
   id,
@@ -40,7 +41,8 @@ export default function AccordionTable({
         </Accordion>
       ) : (
         <div>
-          {msg} <i class="bx bx-loader-alt bx-spin"></i>
+          {msg}
+          <LinearProgress color="secondary" />
         </div>
       )}
     </>

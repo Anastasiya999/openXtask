@@ -9,10 +9,10 @@ import Products from "./models/Products";
 import Carts from "./models/Carts";
 import Stack from "@mui/material/Stack";
 import Divider from "@mui/material/Divider";
-import Paper from "@mui/material/Paper";
 
 import Task1 from "./components/Tasks/Task1";
 import Task2 from "./components/Tasks/Task2";
+import Task3 from "./components/Tasks/Task3";
 
 import endpoints from "./data/api";
 
@@ -40,13 +40,12 @@ function App() {
       <CssBaseline />
       <Container>
         <Stack divider={<Divider />} spacing={2} sx={{ marginTop: 4 }}>
-          <Paper elevation={0}>
-            <Task1 users={users} products={products} carts={carts} />
-          </Paper>
-          <Paper elevation={0}>
-            <Task2 products={products} />
-          </Paper>
-          <div>task 3</div>
+          <Task1 users={users} products={products} carts={carts} />
+
+          <Task2 products={products} />
+
+          <Task3 users={users} products={products} carts={carts} />
+
           <div>task 4</div>
         </Stack>
       </Container>
