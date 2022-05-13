@@ -3,6 +3,10 @@ export default class Users {
     this.users = users;
   }
 
+  getUsers() {
+    return this.users;
+  }
+
   getFullNameById(id) {
     for (const user of this.users) {
       if (user.id === id) {

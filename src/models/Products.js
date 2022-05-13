@@ -3,6 +3,10 @@ export default class Products {
     this.items = items;
   }
 
+  getProducts() {
+    return this.items;
+  }
+
   getCategories() {
     if (this.productsByCategories) return this.productsByCategories;
     this.productsByCategories = {};

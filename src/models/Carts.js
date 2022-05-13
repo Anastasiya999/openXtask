@@ -3,6 +3,10 @@ export default class Carts {
     this.carts = carts;
   }
 
+  getCarts() {
+    return this.carts;
+  }
+
   getMostExpensive(productsPrices) {
     let maxValue = -Infinity;
     let maxId = 0;
